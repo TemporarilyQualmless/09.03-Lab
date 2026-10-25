@@ -1,11 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>CS208 - Starter Code (UPDATE ME)!</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Lab 09.03</title>
 </head>
+
+<body>
+
+   <h1>Starting Lineup</h1>
+
+   <form>
+
+      <fieldset>
+         <legend>Status:</legend>
+         <p>
+            <input type="radio" id="draft" name="status" value="Draft">
+            <label for="draft">Draft</label>
+
+            <input type="radio" id="final" name="status" value="Final" checked>
+            <label for="final">Final</label>
+         </p>
+      </fieldset>
+
+      <p>
+         <label for="gameDate">Date:</label>
+         <select id="gameDate" name="gameDate">
+            <option value="March 20">March 20</option>
+            <option value="March 24">March 24</option>
+            <option value="April 2">April 2</option>
+            <option value="April 6">April 6</option>
+            <option value="April 13">April 13</option>
+         </select>
+      </p>
+
+      <fieldset>
+         <legend>Players:</legend>
+
+         <p>
+            <input type="checkbox" id="aarav" value="Aarav Agarwal">
+            <label for="aarav">Aarav Agarwal</label>
+         </p>
+
+         <p>
+            <input type="checkbox" id="ava" value="Ava Johnson">
+            <label for="ava">Ava Johnson</label>
+         </p>
+
+         <p>
+            <input type="checkbox" id="julio" value="Julio Ortiz">
+            <label for="julio">Julio Ortiz</label>
+         </p>
+
+         <p>
+            <input type="checkbox" id="liam" value="Liam Rubio">
+            <label for="liam">Liam Rubio</label>
+         </p>
+
+         <p>
+            <input type="checkbox" id="emma" value="Emma Witherspoon">
+            <label for="emma">Emma Witherspoon</label>
+         </p>
+
+      </fieldset>
+
+      <p>
+         <input type="submit" id="submitButton" value="Submit">
+      </p>
+
+   </form>
+
+   <p id="output"></p>
+
+   <script>
+
+      document.getElementById("submitButton").addEventListener("click", myLineUp);
+
+      function myLineUp(event) {
+
+         event.preventDefault();
+
+         var status = "Draft";
+
+         if (document.getElementById("final").checked) {
+            status = "Final";
+         }
+
+         var gameDate = document.getElementById("gameDate").value;
+
+         var players = "";
+
+         if (document.getElementById("aarav").checked) {
+            players = players + "Aarav Agarwal, ";
+         }
+
+         if (document.getElementById("ava").checked) {
+            players = players + "Ava Johnson, ";
+         }
+
+         if (document.getElementById("julio").checked) {
+            players = players + "Julio Ortiz, ";
+         }
+
+         if (document.getElementById("liam").checked) {
+            players = players + "Liam Rubio, ";
+         }
+
+         if (document.getElementById("emma").checked) {
+            players = players + "Emma Witherspoon, ";
+         }
+
+         console.log("Status: " + status);
+         console.log("Date: " + gameDate);
+         console.log("Players: " + players);
+
+         
+         var result = "Status: " + status + " Date: " + gameDate + " Players: " + players;
+
+         document.getElementById("output").textContent = result;
+
+      }
+
+   </script>
+
+</body>
+</html>
 
